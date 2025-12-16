@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+.no-scrollbar {
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+*:focus {
+  outline: none;
+}
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 2px black;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+::selection {
+  background: #000000;   
+  color: #ffffff;      
+}
+
+::-moz-selection {
+  background: #000000;
+  color: #ffffff;
+}
+
+@keyframes catIdle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-cat-idle {
+  animation: catIdle 4s ease-in-out infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px; /* navbar height */
 }
