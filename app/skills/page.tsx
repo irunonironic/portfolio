@@ -2,6 +2,7 @@
 
 import { Kanit } from "next/font/google";
 import { motion } from "framer-motion";
+import type { Variants } from "framer-motion"
 
 const kanit = Kanit({
   subsets: ["latin"],
@@ -14,7 +15,7 @@ const skills = {
   tools: ["Git","GitHub" , "REST APIs", "MERN Stack" , "PERN Stack"],
 };
 
-const container = {
+const container:Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -23,7 +24,7 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 10 }, 
   visible: {
     opacity: 1,

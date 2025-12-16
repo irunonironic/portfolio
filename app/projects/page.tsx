@@ -5,6 +5,7 @@ import { ExternalLink } from "lucide-react"
 import { FaGithub } from "react-icons/fa"
 import { Kanit } from "next/font/google"
 import { motion } from "framer-motion"
+import type { Variants } from "framer-motion"
 
 const kanitFont = Kanit({
   subsets: ["latin"],
@@ -23,7 +24,7 @@ const projects = [
   },
 ]
 
-const imageReveal = {
+const imageReveal: Variants = {
   hidden: {
     opacity: 0,
     y: 60,
@@ -38,7 +39,7 @@ const imageReveal = {
   },
 }
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0, y: 80 },
   visible: {
     opacity: 1,

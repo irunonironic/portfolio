@@ -7,13 +7,15 @@ import { motion } from "framer-motion"
 import { FaGithub, FaLinkedinIn, FaDiscord , } from "react-icons/fa"
 import { SiGmail } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6"
+import type { Variants } from "framer-motion"
+
 
 const kanitFont = Kanit({
   subsets: ["latin"],
   weight: ["400", "600", "800"],
 })
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
@@ -22,7 +24,7 @@ const fadeUp = {
   },
 }
 
-const imageFade = {
+const imageFade: Variants = {
   hidden: { opacity: 0, scale: 0.96, x: 40 },
   visible: {
     opacity: 1,

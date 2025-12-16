@@ -5,13 +5,15 @@ import { FaXTwitter } from "react-icons/fa6";
 import { Kanit } from "next/font/google";
 import { motion } from "framer-motion";
 import { SiGmail } from "react-icons/si";
+import type { Variants } from "framer-motion"
+
 
 const kanitFont = Kanit({
   subsets: ["latin"],
   weight: ["400", "600", "800"],
 });
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
