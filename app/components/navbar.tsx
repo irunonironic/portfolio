@@ -1,22 +1,24 @@
 "use client";
-import Link from "next/link"
-import { Patrick_Hand } from "next/font/google"
-import CatLogoSVG from "./catLogo"
+
+import Link from "next/link";
+import Image from "next/image";
+import { Patrick_Hand } from "next/font/google";
+import CatLogoSVG from "./catLogo";
 
 const handFont = Patrick_Hand({
   subsets: ["latin"],
   weight: "400",
-})
+});
 
 const links = [
-  { name: "home", href: "#home" },
-  { name: "projects", href: "#projects" },
-  { name: "skills", href: "#skills" },
-  { name: "contact", href: "#contact" },
-]
+  { name: "home", href: "#home", mobile: true },
+  { name: "projects", href: "#projects", mobile: true },
+  { name: "skills", href: "#skills", mobile: false },
+  { name: "contact", href: "#contact", mobile: false },
+];
 
 const navLinkClass =
-  "text-base font-semibold whitespace-nowrap hover:opacity-70 transition flex-shrink-0"
+  "text-base font-semibold whitespace-nowrap hover:opacity-70 transition flex-shrink-0";
 
 const Navbar = () => {
   return (
@@ -41,24 +43,78 @@ const Navbar = () => {
               -ml-6
             "
           >
-         
-            <div className="flex w-full items-center justify-center gap-6 overflow-x-auto no-scrollbar">
+            {/* MOBILE */}
+            <div className="flex w-full items-center justify-center gap-4 flex-wrap sm:hidden">
               {links.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={navLinkClass}
+                  className={`${navLinkClass} ${
+                    link.mobile ? "block" : "hidden"
+                  }`}
                 >
                   {link.name}
                 </Link>
               ))}
+
+              <a
+                href="https://buymeacoffee.com/irunonironic"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:opacity-80 transition"
+              >
+                <Image
+                  src="/bmc.png"
+                  alt="Buy Me a Coffee"
+                  width={18}
+                  height={18}
+                />
+                <span className="text-sm font-semibold leading-none">
+                  Buy me a coffee
+                </span>
+              </a>
             </div>
 
+            {/* DESKTOP  */}
+            <div className="hidden sm:flex w-full items-center">
+
+              <div className="absolute inset-0 flex items-center justify-center gap-4 pointer-events-none">
+                {links.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`${navLinkClass} pointer-events-auto`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
+
+              <div className="ml-auto flex items-center gap-2">
+                <a
+                  href="https://buymeacoffee.com/irunonironic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:opacity-80 transition cursor-pointer"
+                >
+                  <Image
+                    src="/bmc.png"
+                    alt="Buy Me a Coffee"
+                    width={18}
+                    height={18}
+                  />
+                  <span className="text-base font-semibold leading-none">
+                    Buy me a coffee
+                  </span>
+                </a>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
