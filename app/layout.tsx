@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Anuja Vibhute",
     images: [
       {
-        url: "/og.png",
+        url: "/og2.png",
         width: 1200,
         height: 630,
         alt: "Anuja Vibhute — Frontend Developer",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Anuja Vibhute — Frontend Developer",
     description:
       "Frontend Developer building clean, responsive, modern web interfaces.",
-    images: ["/og.png"],
+    images: ["/og2.png"],
     creator: "@irunonironic",
   },
 }
