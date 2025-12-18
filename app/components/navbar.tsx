@@ -14,7 +14,7 @@ const links = [
   { name: "home", href: "#home", mobile: true },
   { name: "projects", href: "#projects", mobile: true },
   { name: "skills", href: "#skills", mobile: false },
-  { name: "contact", href: "#contact", mobile: false },
+  { name: "contact", href: "#contact", mobile: true},
 ];
 
 const navLinkClass =
@@ -44,7 +44,7 @@ const Navbar = () => {
             "
           >
             {/* MOBILE */}
-            <div className="flex w-full items-center justify-center gap-4 flex-wrap sm:hidden">
+            <div className="flex w-full items-center justify-center gap-3 flex-wrap sm:hidden ">
               {links.map((link) => (
                 <Link
                   key={link.name}
@@ -61,13 +61,13 @@ const Navbar = () => {
                 href="https://buymeacoffee.com/irunonironic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:opacity-80 transition"
+                className="flex items-center gap-1 hover:opacity-80 transition pl-4"
               >
                 <Image
                   src="/bmc.png"
                   alt="Buy Me a Coffee"
-                  width={18}
-                  height={18}
+                  width={14}
+                  height={14}
                 />
                 <span className="text-sm font-semibold leading-none">
                   Buy me a coffee
