@@ -14,7 +14,7 @@ const links = [
   { name: "home", href: "#home", mobile: true },
   { name: "projects", href: "#projects", mobile: true },
   { name: "skills", href: "#skills", mobile: false },
-  { name: "contact", href: "#contact", mobile: true},
+  { name: "contact", href: "#contact", mobile: false},
 ];
 
 const navLinkClass =
