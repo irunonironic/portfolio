@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { ExternalLink } from "lucide-react"
-import { FaGithub } from "react-icons/fa"
-import { Kanit } from "next/font/google"
-import { motion } from "framer-motion"
-import type { Variants } from "framer-motion"
+import Image from "next/image";
+import { ExternalLink } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
+import { Kanit } from "next/font/google";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
 const kanitFont = Kanit({
   subsets: ["latin"],
   weight: ["400", "600", "800"],
-})
+});
 
 const projects = [
   {
@@ -22,7 +22,7 @@ const projects = [
     liveLink: "https://www.spillr.live/",
     githubLink: "https://github.com/irunonironic/spillr",
   },
-]
+];
 
 const imageReveal: Variants = {
   hidden: {
@@ -37,7 +37,7 @@ const imageReveal: Variants = {
       ease: "easeOut",
     },
   },
-}
+};
 
 const containerVariants: Variants = {
   hidden: { opacity: 0, y: 80 },
@@ -50,16 +50,17 @@ const containerVariants: Variants = {
       staggerChildren: 0.15,
     },
   },
-}
+};
 
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 },
-}
+};
 
 const ProjectsSection = () => {
   return (
-    <motion.section id="projects"
+    <motion.section
+      id="projects"
       className={`w-full bg-black text-white py-24 ${kanitFont.className}`}
       variants={containerVariants}
       initial="hidden"
@@ -82,27 +83,29 @@ const ProjectsSection = () => {
               variants={itemVariants}
               className="grid grid-cols-1 md:grid-cols-2 items-center gap-12"
             >
-              <motion.div
+              <motion.a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 variants={imageReveal}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.3 }}
-                className="relative w-full max-w-[520px] aspect-[18/10] rounded-2xl overflow-hidden"
+                className="relative w-full max-w-[520px] aspect-[18/10] rounded-2xl overflow-hidden cursor-pointer group"
               >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-              </motion.div>
-
-
+              </motion.a>
 
               {/* Text */}
               <div
-                className={`flex flex-col ${index % 2 !== 0 ? "md:order-1" : "md:order-2"
-                  }`}
+                className={`flex flex-col ${
+                  index % 2 !== 0 ? "md:order-1" : "md:order-2"
+                }`}
               >
                 <span className="mb-4 text-4xl font-bold text-white/70">
                   {project.id}
@@ -121,7 +124,7 @@ const ProjectsSection = () => {
                     href={project.liveLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium hover:opacity-70 transition"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-white transition"
                   >
                     View Project
                     <ExternalLink size={16} />
@@ -132,7 +135,7 @@ const ProjectsSection = () => {
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium hover:opacity-70 transition"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-white transition"
                     >
                       GitHub
                       <FaGithub size={16} />
@@ -145,7 +148,7 @@ const ProjectsSection = () => {
         </div>
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default ProjectsSection
+export default ProjectsSection;
