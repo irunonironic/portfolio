@@ -93,8 +93,7 @@ function SkillBlock({
                 rounded-lg
                 py-2 px-2
                 text-sm font-medium
-                border border-black
-                hover:bg-white hover:text-black
+                hover:bg-neutral-700 hover:text-white
                 transition
               "
             >

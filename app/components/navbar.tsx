@@ -18,7 +18,8 @@ const links = [
 ];
 
 const navLinkClass =
-  "text-base font-semibold whitespace-nowrap hover:opacity-70 transition flex-shrink-0";
+  "text-base font-semibold whitespace-nowrap text-neutral-700 hover:text-black transition flex-shrink-0";
+
 
 const Navbar = () => {
   return (
@@ -44,7 +45,7 @@ const Navbar = () => {
             "
           >
             {/* MOBILE */}
-            <div className="flex w-full items-center justify-center gap-3 flex-wrap sm:hidden ">
+            <div className="flex w-full items-center justify-center gap-3 flex-wrap sm:hidden  ">
               {links.map((link) => (
                 <Link
                   key={link.name}
@@ -61,7 +62,7 @@ const Navbar = () => {
                 href="https://buymeacoffee.com/irunonironic"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 hover:opacity-80 transition pl-4"
+                className="flex items-center gap-1 text-neutral-700 hover:text-black transition pl-4"
               >
                 <Image
                   src="/bmc.png"
@@ -95,7 +96,7 @@ const Navbar = () => {
                   href="https://buymeacoffee.com/irunonironic"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:opacity-80 transition cursor-pointer"
+                  className="flex items-center gap-2 text-neutral-700 hover:text-black  transition cursor-pointer"
                 >
                   <Image
                     src="/bmc.png"
